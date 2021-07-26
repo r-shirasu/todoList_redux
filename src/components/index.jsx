@@ -2,6 +2,9 @@ import React from "react";
 import { useState } from "react";
 import "./style.scss";
 
+import { PostList } from "./features/posts/postlist/index.jsx";
+import { AddPostForm } from "./features/posts/addpostform/index.jsx";
+
 export const App = () => {
   const [task, setTask] = useState("");
   const [todos, setTodos] = useState([]);
@@ -51,38 +54,16 @@ export const App = () => {
   return (
     <div className="main">
       <h1>TO-DO LIST</h1>
-      <form onSubmit={handleClick} id="add">
-        <input
-          type="text"
-          placeholder="new task"
-          value={task}
-          onChange={addTask}
-        />
-        <input type="submit" value="ADD" />
-      </form>
+      <AddPostForm handleClick={handleClick} addTask={addTask} />
       {isShowAlertMessage && (
         <div className="alertMessage">Todoを入力してください</div>
       )}
-      <div className="tasksBoard">
-        <ul id="todo-list">
-          {todos.map((todo, index) => (
-            <li key={`${todo}${index}`}>
-              <span onClick={() => deleteAction(index)}>×</span>
-
-              <label name={index} className={todo.isChecked ? "checked" : ""}>
-                <input
-                  type="checkbox"
-                  checked={todo.isChecked}
-                  name="check"
-                  onChange={() => handleCheck(index)}
-                />
-                {todo.task}
-              </label>
-            </li>
-          ))}
-        </ul>
-        <p onClick={clearAction}>Clear</p>
-      </div>
+      <PostList
+        todos={todos}
+        handleCheck={handleCheck}
+        clearAction={clearAction}
+        deleteAction={deleteAction}
+      />
     </div>
   );
 };
