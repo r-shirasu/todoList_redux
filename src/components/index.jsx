@@ -1,14 +1,19 @@
 import React from "react";
 import { useState } from "react";
 import "./style.scss";
+import { useDispatch } from "react-redux";
+import { nanoid } from "@reduxjs/toolkit";
+
+import { postAdded } from "./features/posts/postlist/postsSlice";
 
 import { PostList } from "./features/posts/postlist/index.jsx";
 import { AddPostForm } from "./features/posts/addpostform/index.jsx";
 
 export const App = () => {
   const [task, setTask] = useState("");
-  const [todos, setTodos] = useState([]);
   const [isShowAlertMessage, setIsShowMessage] = useState(false);
+
+  const dispatch = useDispatch();
 
   const addTask = (e) => {
     setTask(e.target.value);
@@ -21,34 +26,16 @@ export const App = () => {
       setIsShowMessage(true);
       return;
     }
+    dispatch(
+      postAdded({
+        id: nanoid(),
+        task,
+        isChecked: false,
+      })
+    );
 
-    setIsShowMessage(false);
-    setTodos(todos.concat({ task: task, isChecked: false }));
     setTask("");
-  };
-
-  const handleCheck = (index) => {
-    const checkedTodos = todos.map((todo, _index) => {
-      if (_index !== index) {
-        return todo;
-      }
-      return {
-        task: todo.task,
-        isChecked: !todo.isChecked,
-      };
-    });
-    setTodos(checkedTodos);
-  };
-
-  const clearAction = () => {
-    setTodos([]);
-  };
-
-  const deleteAction = (index) => {
-    const deleteArr = todos.filter((_, id) => {
-      return id !== index;
-    });
-    setTodos(deleteArr);
+    setIsShowMessage(false);
   };
 
   return (
@@ -58,12 +45,7 @@ export const App = () => {
       {isShowAlertMessage && (
         <div className="alertMessage">Todoを入力してください</div>
       )}
-      <PostList
-        todos={todos}
-        handleCheck={handleCheck}
-        clearAction={clearAction}
-        deleteAction={deleteAction}
-      />
+      <PostList />
     </div>
   );
 };
