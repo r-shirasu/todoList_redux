@@ -27,30 +27,6 @@ export const App = () => {
     setTask("");
   };
 
-  const handleCheck = (index) => {
-    const checkedTodos = todos.map((todo, _index) => {
-      if (_index !== index) {
-        return todo;
-      }
-      return {
-        task: todo.task,
-        isChecked: !todo.isChecked,
-      };
-    });
-    setTodos(checkedTodos);
-  };
-
-  const clearAction = () => {
-    setTodos([]);
-  };
-
-  const deleteAction = (index) => {
-    const deleteArr = todos.filter((_, id) => {
-      return id !== index;
-    });
-    setTodos(deleteArr);
-  };
-
   return (
     <div className="main">
       <h1>TO-DO LIST</h1>
@@ -58,12 +34,7 @@ export const App = () => {
       {isShowAlertMessage && (
         <div className="alertMessage">Todoを入力してください</div>
       )}
-      <PostList
-        todos={todos}
-        handleCheck={handleCheck}
-        clearAction={clearAction}
-        deleteAction={deleteAction}
-      />
+      <PostList />
     </div>
   );
 };
