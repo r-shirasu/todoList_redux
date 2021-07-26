@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import "./App.scss";
+import "./style.scss";
 
 export const App = () => {
   const [task, setTask] = useState("");
