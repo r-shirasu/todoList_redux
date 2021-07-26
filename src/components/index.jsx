@@ -30,6 +30,7 @@ export const App = () => {
       postAdded({
         id: nanoid(),
         task,
+        isChecked: false,
       })
     );
 
