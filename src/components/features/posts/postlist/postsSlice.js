@@ -19,8 +19,21 @@ const postsSlice = createSlice({
       const deleteTodo = state.filter((_, id) => id !== action.payload.index);
       return deleteTodo;
     },
+    postChecked(state, action) {
+      const checkedTodo = state.map((todo, id) => {
+        if (id !== action.payload.index) {
+          return todo;
+        }
+        return {
+          task: todo.task,
+          isChecked: !todo.isChecked,
+        };
+      });
+      return checkedTodo;
+    },
   },
 });
 
-export const { postAdded, postAllClear, postDeleted } = postsSlice.actions;
+export const { postAdded, postAllClear, postDeleted, postChecked } =
+  postsSlice.actions;
 export default postsSlice.reducer;
