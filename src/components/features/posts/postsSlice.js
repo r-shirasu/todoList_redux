@@ -1,9 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [
-  { task: "First Post!", isChecked: false },
-  { task: "Second Post", isChecked: false },
-];
+const initialState = [];
 
 const postsSlice = createSlice({
   name: "posts",
