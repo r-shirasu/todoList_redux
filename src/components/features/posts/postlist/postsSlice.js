@@ -12,7 +12,10 @@ const postsSlice = createSlice({
     postAdded(state, action) {
       state.push(action.payload);
     },
+    postAllClear(state) {
+      state.splice(0);
+    },
   },
 });
-export const { postAdded } = postsSlice.actions;
+export const { postAdded, postAllClear } = postsSlice.actions;
 export default postsSlice.reducer;

@@ -1,7 +1,9 @@
 import "./style.scss";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { postAllClear } from "./postsSlice";
 
 export const PostList = () => {
+  const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
 
   return (
@@ -19,7 +21,7 @@ export const PostList = () => {
           </li>
         ))}
       </ul>
-      <p>Clear</p>
+      <p onClick={() => dispatch(postAllClear(posts))}>Clear</p>
     </div>
   );
 };
