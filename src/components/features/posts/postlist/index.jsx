@@ -1,6 +1,6 @@
 import "./style.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { postAllClear } from "./postsSlice";
+import { postAllClear, postDeleted } from "./postsSlice";
 
 export const PostList = () => {
   const dispatch = useDispatch();
@@ -11,7 +11,17 @@ export const PostList = () => {
       <ul id="todo-list">
         {posts.map((todo, index) => (
           <li key={`${todo}${index}`}>
-            <span>×</span>
+            <span
+              onClick={() =>
+                dispatch(
+                  postDeleted({
+                    index,
+                  })
+                )
+              }
+            >
+              ×
+            </span>
 
             <label name={index} className={todo.isChecked ? "checked" : ""}>
               {/* <input type="checkbox" checked={todo.isChecked} name="check" /> */}
