@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import "./style.scss";
 import { useDispatch } from "react-redux";
-import { nanoid } from "@reduxjs/toolkit";
 
 import { postAdded } from "./features/posts/postlist/postsSlice";
 
@@ -28,7 +27,6 @@ export const App = () => {
     }
     dispatch(
       postAdded({
-        id: nanoid(),
         task,
         isChecked: false,
       })

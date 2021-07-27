@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = [
-  { id: "1", task: "First Post!", isChecked: false },
-  { id: "2", task: "Second Post", isChecked: false },
+  { task: "First Post!", isChecked: false },
+  { task: "Second Post", isChecked: false },
 ];
 
 const postsSlice = createSlice({
@@ -15,7 +15,12 @@ const postsSlice = createSlice({
     postAllClear(state) {
       state.splice(0);
     },
+    postDeleted(state, action) {
+      const deleteTodo = state.filter((_, id) => id !== action.payload.index);
+      return deleteTodo;
+    },
   },
 });
-export const { postAdded, postAllClear } = postsSlice.actions;
+
+export const { postAdded, postAllClear, postDeleted } = postsSlice.actions;
 export default postsSlice.reducer;
