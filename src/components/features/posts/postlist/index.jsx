@@ -8,7 +8,7 @@ export const PostList = () => {
 
   return (
     <div className="tasksBoard">
-      <ul id="todo-list">
+      <ul>
         {posts.map((todo, index) => (
           <li key={`${todo}${index}`}>
             <span
@@ -23,11 +23,10 @@ export const PostList = () => {
               ×
             </span>
 
-            <label name={index} className={todo.isChecked ? "checked" : ""}>
+            <label className={todo.isChecked ? "checked" : ""}>
               <input
                 type="checkbox"
                 checked={todo.isChecked}
-                name="check"
                 onChange={() =>
                   dispatch(
                     postChecked({
