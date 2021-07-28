@@ -10,7 +10,7 @@ export const AddPostForm = ({ setIsShowMessage }) => {
 
   const dispatch = useDispatch();
 
-  const handleClick = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (task === "") {
@@ -29,7 +29,7 @@ export const AddPostForm = ({ setIsShowMessage }) => {
   };
 
   return (
-    <form onSubmit={handleClick} id="add">
+    <form onSubmit={handleSubmit} id="add">
       <input
         type="text"
         placeholder="new task"

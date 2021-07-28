@@ -14,26 +14,14 @@ html {
   /* フレックスアイテムが主軸に沿って上から下に */
   flex-direction: column;
   margin: auto;
-}
 
-h1 {
-  text-align: center;
-  color: #fff;
-}
+  h1 {
+    text-align: center;
+    color: #fff;
+  }
 
-.alertMessage {
-  color: white;
-  font-weight: bold;
-}
-
-input[type="submit"] {
-  display: inline-block;
-  font-size: 1.5em;
-  color: #53bdff;
-  background-color: #fff;
-  border: none;
-  outline: 0;
-  cursor: pointer;
-  font-weight: bold;
-  padding-left: 40px;
+  .alertMessage {
+    color: white;
+    font-weight: bold;
+  }
 }
