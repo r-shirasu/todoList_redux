@@ -10,7 +10,7 @@ const postsSlice = createSlice({
       state.push(action.payload);
     },
     postAllClear(state) {
-      state.splice(0);
+      return initialState;
     },
     postDeleted(state, action) {
       const deleteTodo = state.filter((_, id) => id !== action.payload.index);
