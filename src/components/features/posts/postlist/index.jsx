@@ -1,6 +1,10 @@
 import "./style.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { postAllClear, postDeleted, postChecked } from "../postsSlice";
+import {
+  postAllClear,
+  postDeleted,
+  postChecked,
+} from "../../../../redux/postsSlice";
 
 export const PostList = () => {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./style.scss";
 import { useDispatch } from "react-redux";
-import { postAdded } from "../postsSlice";
+import { postAdded } from "../../../../redux/postsSlice";
 
 export const AddPostForm = ({ setIsShowMessage }) => {
   const [task, setTask] = useState("");
