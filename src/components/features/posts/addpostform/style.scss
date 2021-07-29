@@ -1,0 +1,26 @@
+form {
+  background-color: #fff;
+  padding: 15px;
+  display: flex;
+}
+
+input[type="submit"] {
+  display: inline-block;
+  font-size: 1.5em;
+  color: #53bdff;
+  background-color: #fff;
+  border: none;
+  outline: 0;
+  cursor: pointer;
+  font-weight: bold;
+  padding-left: 40px;
+}
+
+input {
+  width: 310px;
+  height: 30px;
+  outline: 0;
+  border: none;
+  font-size: 1.5em;
+  display: inline-block;
+}

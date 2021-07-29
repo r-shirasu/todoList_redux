@@ -1,0 +1,27 @@
+html {
+  height: 100%;
+  background-image: linear-gradient(#ff6161, #ff768c);
+  background-repeat: no-repeat;
+  font-family: sans-serif;
+  color: #0f222d;
+  background-size: auto;
+}
+
+.main {
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  /* フレックスアイテムが主軸に沿って上から下に */
+  flex-direction: column;
+  margin: auto;
+
+  h1 {
+    text-align: center;
+    color: #fff;
+  }
+
+  .alertMessage {
+    color: white;
+    font-weight: bold;
+  }
+}
